@@ -23,7 +23,7 @@ bool keys_chord(uint8_t keys[]) {
 }
 
 bool process_chording(uint16_t keycode, keyrecord_t *record) {
-  if (keycode >= QK_CHORDING && keycode <= QK_CHORDING_MAX) {
+  if (keycode >= KK_CHORDING && keycode <= KK_CHORDING_MAX) {
     if (record->event.pressed) {
       if (!chording) {
         chording = true;

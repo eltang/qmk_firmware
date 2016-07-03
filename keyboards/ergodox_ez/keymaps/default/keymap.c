@@ -145,7 +145,7 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
       switch(id) {
         case 0:
         if (record->event.pressed) {
-          SEND_STRING (QMK_KEYBOARD "/" QMK_KEYMAP " @ " QMK_VERSION);
+          SEND_STRING (KEYSTROKES_KEYBOARD "/" KEYSTROKES_KEYMAP " @ " KEYSTROKES_VERSION);
         }
         break;
       }

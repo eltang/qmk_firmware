@@ -70,7 +70,7 @@ void process_record_nocache(keyrecord_t *record)
 #endif
 
 __attribute__ ((weak))
-bool process_record_quantum(keyrecord_t *record) {
+bool process_record_keystrokes(keyrecord_t *record) {
     return true;
 }
 
@@ -78,7 +78,7 @@ void process_record(keyrecord_t *record)
 {
     if (IS_NOEVENT(record->event)) { return; }
 
-    if(!process_record_quantum(record))
+    if(!process_record_keystrokes(record))
         return;
 
     action_t action = store_or_get_action(record->event.pressed, record->event.key);

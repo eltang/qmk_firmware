@@ -76,7 +76,7 @@ UNICODE_ENABLE ?= YES 		# Unicode
 # BLUETOOTH_ENABLE ?= yes # Enable Bluetooth with the Adafruit EZ-Key HID
 
 
-ifndef QUANTUM_DIR
+ifndef KEYSTROKES_DIR
 	include ../../Makefile
 endif
 

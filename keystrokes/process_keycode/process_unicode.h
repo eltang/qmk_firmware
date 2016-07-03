@@ -1,7 +1,7 @@
 #ifndef PROCESS_UNICODE_H
 #define PROCESS_UNICODE_H
 
-#include "quantum.h"
+#include "keystrokes.h"
 
 #define UC_OSX 0
 #define UC_LNX 1

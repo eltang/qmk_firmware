@@ -33,7 +33,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "led.h"
 #include "command.h"
 #include "backlight.h"
-#include "quantum.h"
+#include "keystrokes.h"
 
 #ifdef MOUSEKEY_ENABLE
 #include "mousekey.h"

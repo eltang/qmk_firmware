@@ -89,7 +89,7 @@ At the top right corner of the Ergodox EZ you can a gesture similar to the speci
 
 ### RShift ###
 
-The Ordinary Layout locks layers by pressing both of a pair of shift keys. This interferes with the QMK firmware magic sequence, which is LShift+RShift. To work around this, both of the Capitals Shift keys produce a *Left Shift* keystroke. If for some reason a person needs *Right Shift* they can find it by pressing a Special Shift key, then the Capitals Shift key on the right side of the keyboard.
+The Ordinary Layout locks layers by pressing both of a pair of shift keys. This interferes with the magic sequence, which is LShift+RShift. To work around this, both of the Capitals Shift keys produce a *Left Shift* keystroke. If for some reason a person needs *Right Shift* they can find it by pressing a Special Shift key, then the Capitals Shift key on the right side of the keyboard.
 
 ****
 
@@ -100,4 +100,4 @@ Modifications from default by Nicholas Keene ergodoxez@nicholaskeene.com
 No rights reserved. This software is in the public domain. Credit me if you are friendly but if you're a jerk don't bother.
 
 Details: readme.md
-         https://github.com/nrrkeene/qmk_firmware/tree/master/keyboard/ergodox_ez/keymaps/ordinary
+         https://github.com/nrrkeene/keystrokes/tree/master/keyboard/ergodox_ez/keymaps/ordinary

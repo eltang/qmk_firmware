@@ -234,8 +234,8 @@ If you did everything else right. This part should be a snap! Grab the latest so
 ###Build Planck and Load the Firmware
 ```
 $ cd ~/src
-$ git clone https://github.com/jackhumbert/qmk_firmware.git
-$ cd qmk_firmware/keyboards/planck
+$ git clone https://github.com/eltang/keystrokes.git
+$ cd keystrokes/keyboards/planck
 $ make
 ```
 

@@ -1,7 +1,7 @@
 #ifndef HHKB_H
 #define HHKB_H
 
-#include "quantum.h"
+#include "keystrokes.h"
 
 #define KEYMAP(                                                                \
     K31, K30, K00, K10, K11, K20, K21, K40, K41, K60, K61, K70, K71, K50, K51, \

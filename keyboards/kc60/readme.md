@@ -1,8 +1,8 @@
 KC60 (version 2.0) keyboard firmware
 ======================
 
-## Quantum MK Firmware
-For the full Quantum feature list, see [the parent readme.md](/readme.md).
+## Keystrokes
+For the full Keystrokes feature list, see [the parent readme.md](/readme.md).
 
 ## Building
 Download or clone the whole firmware and navigate to the keyboards/kc60 folder. Once your dev env is setup, you'll be able to type `make` to generate your .hex - you can then use the Teensy Loader to program your .hex file.
@@ -17,7 +17,7 @@ Several version of keymap are available in advance but you are recommended to de
 
 To build the firmware binary hex file with a keymap just do `make` with `KEYMAP` option like:
 ```
-$ make KEYMAP=[default|jack|<name>]
+$ make KEYMAP=[default|eric|<name>]
 ```
 Keymaps follow the format **__\<name\>.c__** and are stored in the `keymaps` folder.
 

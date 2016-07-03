@@ -1,7 +1,7 @@
 #ifndef PROCESS_CHORDING_H
 #define PROCESS_CHORDING_H
 
-#include "quantum.h"
+#include "keystrokes.h"
 
 // Chording stuff
 #define CHORDING_MAX 4

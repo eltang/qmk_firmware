@@ -65,6 +65,6 @@ COMMAND_ENABLE ?= yes    # Commands for debug and configuration
 #SLEEP_LED_ENABLE = yes  # Breathing sleep LED during USB suspend
 #NKRO_ENABLE = yes	# USB Nkey Rollover - not yet supported in LUFA
 
-ifndef QUANTUM_DIR
+ifndef KEYSTROKES_DIR
 	include ../../Makefile
 endif

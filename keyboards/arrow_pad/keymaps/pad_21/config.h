@@ -26,7 +26,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define DEVICE_VER      0x0001
 #define MANUFACTURER    Nobody
 #define PRODUCT         Arrow Pad 21
-#define DESCRIPTION     21-Key QMK Assistant
+#define DESCRIPTION     21-Key Keystrokes Assistant
 
 /* key matrix size */
 #define MATRIX_ROWS 2

@@ -27,7 +27,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "action_macro.h"
 #include "debug.h"
 #include "backlight.h"
-#include "quantum.h"
+#include "keystrokes.h"
 
 #ifdef MIDI_ENABLE
 	#include "keymap_midi.h"
@@ -71,54 +71,54 @@ action_t action_for_key(uint8_t layer, keypos_t key)
         case KC_TRNS:
             action.code = ACTION_TRANSPARENT;
             break;
-        case QK_MODS ... QK_MODS_MAX: ;
+        case KK_MODS ... KK_MODS_MAX: ;
             // Has a modifier
             // Split it up
             action.code = ACTION_MODS_KEY(keycode >> 8, keycode & 0xFF); // adds modifier to key
             break;
-        case QK_FUNCTION ... QK_FUNCTION_MAX: ;
+        case KK_FUNCTION ... KK_FUNCTION_MAX: ;
             // Is a shortcut for function action_layer, pull last 12bits
             // This means we have 4,096 FN macros at our disposal
             action.code = pgm_read_word(&actions[(int)keycode & 0xFFF]);
             break;
-        case QK_MACRO ... QK_MACRO_MAX:
+        case KK_MACRO ... KK_MACRO_MAX:
             action.code = ACTION_MACRO(keycode & 0xFF);
             break;
-        case QK_LAYER_TAP ... QK_LAYER_TAP_MAX:
+        case KK_LAYER_TAP ... KK_LAYER_TAP_MAX:
             action.code = ACTION_LAYER_TAP_KEY((keycode >> 0x8) & 0xF, keycode & 0xFF);
             break;
-        case QK_TO ... QK_TO_MAX: ;
+        case KK_TO ... KK_TO_MAX: ;
             // Layer set "GOTO"
             when = (keycode >> 0x4) & 0x3;
             action_layer = keycode & 0xF;
             action.code = ACTION_LAYER_SET(action_layer, when);
             break;
-        case QK_MOMENTARY ... QK_MOMENTARY_MAX: ;
+        case KK_MOMENTARY ... KK_MOMENTARY_MAX: ;
             // Momentary action_layer
             action_layer = keycode & 0xFF;
             action.code = ACTION_LAYER_MOMENTARY(action_layer);
             break;
-        case QK_DEF_LAYER ... QK_DEF_LAYER_MAX: ;
+        case KK_DEF_LAYER ... KK_DEF_LAYER_MAX: ;
             // Set default action_layer
             action_layer = keycode & 0xFF;
             action.code = ACTION_DEFAULT_LAYER_SET(action_layer);
             break;
-        case QK_TOGGLE_LAYER ... QK_TOGGLE_LAYER_MAX: ;
+        case KK_TOGGLE_LAYER ... KK_TOGGLE_LAYER_MAX: ;
             // Set toggle
             action_layer = keycode & 0xFF;
             action.code = ACTION_LAYER_TOGGLE(action_layer);
             break;
-        case QK_ONE_SHOT_LAYER ... QK_ONE_SHOT_LAYER_MAX: ;
+        case KK_ONE_SHOT_LAYER ... KK_ONE_SHOT_LAYER_MAX: ;
             // OSL(action_layer) - One-shot action_layer
             action_layer = keycode & 0xFF;
             action.code = ACTION_LAYER_ONESHOT(action_layer);
             break;
-        case QK_ONE_SHOT_MOD ... QK_ONE_SHOT_MOD_MAX: ;
+        case KK_ONE_SHOT_MOD ... KK_ONE_SHOT_MOD_MAX: ;
             // OSM(mod) - One-shot mod
             mod = keycode & 0xFF;
             action.code = ACTION_MODS_ONESHOT(mod);
             break;
-        case QK_MOD_TAP ... QK_MOD_TAP_MAX:
+        case KK_MOD_TAP ... KK_MOD_TAP_MAX:
             action.code = ACTION_MODS_TAP_KEY((keycode >> 0x8) & 0xF, keycode & 0xFF);
             break;
     #ifdef BACKLIGHT_ENABLE

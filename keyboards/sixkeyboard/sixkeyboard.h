@@ -1,7 +1,7 @@
 #ifndef SIXKEYBOARD_H
 #define SIXKEYBOARD_H
 
-#include "quantum.h"
+#include "keystrokes.h"
 
 // This macro is an example of using a non-standard row-column matrix. The 
 // keyboard in question had 11 rows and 8 columns, but the rows were not all 

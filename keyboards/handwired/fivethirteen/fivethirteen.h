@@ -1,7 +1,7 @@
 #ifndef FIVETHIRTEEN_H
 #define FIVETHIRTEEN_H
 
-#include "quantum.h"
+#include "keystrokes.h"
 
 #define KEYMAP( \
 	k00, k01, k02, k03, k04, k05, k06, k07, k08, k09, k010, k011, k012, \

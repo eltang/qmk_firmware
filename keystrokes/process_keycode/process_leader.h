@@ -1,7 +1,7 @@
 #ifndef PROCESS_LEADER_H
 #define PROCESS_LEADER_H
 
-#include "quantum.h"
+#include "keystrokes.h"
 
 bool process_leader(uint16_t keycode, keyrecord_t *record);
 

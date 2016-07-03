@@ -17,7 +17,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #ifndef KEYMAP_COMMON_H
 #define KEYMAP_COMMON_H
 
-#include "quantum.h"
+#include "keystrokes.h"
 
 #ifdef INFINITY_PROTOTYPE
 

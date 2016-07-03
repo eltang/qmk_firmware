@@ -1,7 +1,7 @@
 #ifndef ERGODOX_EZ_H
 #define ERGODOX_EZ_H
 
-#include "quantum.h"
+#include "keystrokes.h"
 #include <stdint.h>
 #include <stdbool.h>
 #include "i2cmaster.h"

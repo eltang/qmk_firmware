@@ -1,7 +1,7 @@
 #ifndef SATAN_H
 #define SATAN_H
 
-#include "quantum.h"
+#include "keystrokes.h"
 
 /* Clueboard matrix layout
    * ,-----------------------------------------------------------.

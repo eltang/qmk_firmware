@@ -104,6 +104,6 @@ MIDI_ENABLE ?= no 		# MIDI controls
 UNICODE_ENABLE ?= no 		# Unicode
 BLUETOOTH_ENABLE ?= no # Enable Bluetooth with the Adafruit EZ-Key HID
 
-ifndef QUANTUM_DIR
+ifndef KEYSTROKES_DIR
 	include ../../Makefile
 endif

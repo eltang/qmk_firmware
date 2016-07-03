@@ -3,8 +3,8 @@ Stanley Lai's Split Right Shift with Dedicated Arrow Keys
 
 ![Image of KC60 with RGB Underglow](../ws2812/ws2812_example.jpg)
 
-## Quantum MK Firmware
-For the full Quantum feature list, see [the parent readme.md](/readme.md).
+## Keystrokes
+For the full feature list, see [the parent readme.md](/readme.md).
 
 ## Keymap Notes
 - Keymap setup with split Right Shift in mind.

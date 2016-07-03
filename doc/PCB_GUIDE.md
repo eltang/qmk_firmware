@@ -5,7 +5,7 @@
 ### Windows
 1. Install [MHV AVR Tools](https://infernoembedded.com/sites/default/files/project/MHV_AVR_Tools_20131101.exe). Disable smatch, but **be sure to leave the option to add the tools to the PATH checked**.
 2. Install [MinGW](https://sourceforge.net/projects/mingw/files/Installer/mingw-get-setup.exe/download). During installation, uncheck the option to install a graphical user interface. **DO NOT change the default installation folder.** The scripts depend on the default location.
-3. Clone this repository. [This link will download it as a zip file, which you'll need to extract.](https://github.com/jackhumbert/qmk_firmware/archive/master.zip) Open the extracted folder in Windows Explorer.
+3. Clone this repository. [This link will download it as a zip file, which you'll need to extract.](https://github.com/eltang/keystrokes/archive/master.zip) Open the extracted folder in Windows Explorer.
 4. Right-click on the 1-setup-path-win batch script, select "Run as administrator", and accept the User Account Control prompt. Press the spacebar to dismiss the success message in the command prompt that pops up.
 5. Right-click on the 2-setup-environment-win batch script, select "Run as administrator", and accept the User Account Control prompt. This part may take a couple of minutes, and you'll need to approve a driver installation, but once it finishes, your environment is complete!
 
@@ -32,8 +32,8 @@ Note that, since it will be directly accessing USB hardware, the
 `dfu-programmer` program needs to be run as root.
 
 ## Verify Your Installation
-1. Clone the following repository: https://github.com/jackhumbert/qmk_firmware
-2. Open a Terminal and `cd` into `qmk_firmware/keyboards/planck`
+1. Clone the following repository: https://github.com/eltang/keystrokes
+2. Open a Terminal and `cd` into `keystrokes/keyboards/planck`
 3. Run `make`. This should output a lot of information about the build process.
 
 ## Using the built-in functions
@@ -73,23 +73,23 @@ If you see this
     make (e=2): The system cannot find the file specified.
     make: *** [dfu] Error 2
 
-when trying to 'make dfu' on Windows you need to copy the dfu-programmer.exe to qmk_firmware/keyboards/planck.
+when trying to 'make dfu' on Windows you need to copy the dfu-programmer.exe to keystrokes/keyboards/planck.
 
 
-## Quantum MK Firmware
+## Keystrokes
 
 ### Keymap
 
-Unlike the other keymaps, prefixing the keycodes with `KC_` is required. A full list of the keycodes is available [here](https://github.com/jackhumbert/qmk_firmware/blob/master/tmk_core/doc/keycode.txt). For the keycodes available only in the extended keymap, see this [header file](https://github.com/jackhumbert/qmk_firmware/blob/master/quantum/keymap_common.h).
+Unlike the other keymaps, prefixing the keycodes with `KC_` is required. A full list of the keycodes is available [here](tmk_core/doc/keycode.txt). For the keycodes available only in the extended keymap, see this [header file](keystrokes/keymap_common.h).
 
 You can use modifiers with keycodes like this:
 
     LCTL(KC_C)
-    
+
 Which will generate Ctrl+c. These are daisy-chainable, meaning you can do things like:
 
     LCTL(LALT(KC_C))
-    
+
 That will generate Ctrl+Alt+c. The entire list of these functions is here:
 
 * `LCTL()`: Left control
@@ -119,7 +119,7 @@ A number of other keycodes have been added that you may find useful:
 
 The extended keymap extends the number of function layers from 32 to the near-infinite value of 256. Rather than using `FN<num>` notation (still available, but limited to `FN0`-`FN31`), you can use the `FUNC(<num>)` notation. `F(<num>)` is a shortcut for this.
 
-The function actions are unchanged, and you can see the full list of them [here](https://github.com/jackhumbert/tmk_keyboard/blob/master/common/action_code.h). They are explained in detail [here](https://github.com/jackhumbert/tmk_keyboard/blob/master/doc/keymap.md#2-action).
+The function actions are unchanged, and you can see the full list of them [here](tmk_core/common/action_code.h). They are explained in detail [here](common/doc/keymap.md#2-action).
 
 ### Macros
 
@@ -138,7 +138,7 @@ Macros have been setup in the `keymaps/keymap_default.c` file so that you can us
       case 3:
         return MACRODOWN(TYPE(KC_D), END);
         break;
-    } 
+    }
     return MACRO_NONE;
 
 `MACRODOWN()` is a shortcut for `(record->event.pressed ? MACRO(__VA_ARGS__) : MACRO_NONE)` which tells the macro to execute when the key is pressed. Without this, the macro will be executed on both the down and up stroke.

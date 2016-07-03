@@ -73,9 +73,9 @@ uint8_t matrix_key_count(void);
 /* controls power to the matrix */
 void matrix_power_up(void);
 void matrix_power_down(void);
-/* executes code for Quantum */
-void matrix_init_quantum(void);
-void matrix_scan_quantum(void);
+/* executes code for Keystrokes */
+void matrix_init_keystrokes(void);
+void matrix_scan_keystrokes(void);
 
 void matrix_init_kb(void);
 void matrix_scan_kb(void);

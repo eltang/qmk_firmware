@@ -19,7 +19,7 @@ void set_unicode_mode(uint8_t os_target)
 }
 
 bool process_unicode(uint16_t keycode, keyrecord_t *record) {
-  if (keycode > QK_UNICODE && record->event.pressed) {
+  if (keycode > KK_UNICODE && record->event.pressed) {
     uint16_t unicode = keycode & 0x7FFF;
     switch(input_mode) {
       case UC_OSX:

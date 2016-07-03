@@ -1,7 +1,7 @@
 #ifndef ATOMIC_H
 #define ATOMIC_H
 
-#include "quantum.h"
+#include "keystrokes.h"
 #include <stddef.h>
 #include <avr/io.h>
 #include <avr/interrupt.h>

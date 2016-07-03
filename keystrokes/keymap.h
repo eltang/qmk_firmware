@@ -33,9 +33,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "keycode_config.h"
 
 // ChibiOS uses RESET in its FlagStatus enumeration
-// Therefore define it as QK_RESET here, to avoid name collision
+// Therefore define it as KK_RESET here, to avoid name collision
 #if defined(PROTOCOL_CHIBIOS)
-#define RESET QK_RESET
+#define RESET KK_RESET
 #endif
 
 /* translates key to keycode */
@@ -44,49 +44,49 @@ uint16_t keymap_key_to_keycode(uint8_t layer, keypos_t key);
 extern const uint16_t keymaps[][MATRIX_ROWS][MATRIX_COLS];
 extern const uint16_t fn_actions[];
 
-enum quantum_keycodes {
+enum keystrokes_keycodes {
     // Ranges used in shortucuts - not to be used directly
-    QK_TMK                = 0x0000,
-    QK_TMK_MAX            = 0x00FF,
-    QK_MODS               = 0x0100,
-    QK_LCTL               = 0x0100,
-    QK_LSFT               = 0x0200,
-    QK_LALT               = 0x0400,
-    QK_LGUI               = 0x0800,
-    QK_RCTL               = 0x1100,
-    QK_RSFT               = 0x1200,
-    QK_RALT               = 0x1400,
-    QK_RGUI               = 0x1800,
-    QK_MODS_MAX           = 0x1FFF,
-    QK_FUNCTION           = 0x2000,
-    QK_FUNCTION_MAX       = 0x2FFF,
-    QK_MACRO              = 0x3000,
-    QK_MACRO_MAX          = 0x3FFF,
-    QK_LAYER_TAP          = 0x4000,
-    QK_LAYER_TAP_MAX      = 0x4FFF,
-    QK_TO                 = 0x5000,
-    QK_TO_MAX             = 0x50FF,
-    QK_MOMENTARY          = 0x5100,
-    QK_MOMENTARY_MAX      = 0x51FF,
-    QK_DEF_LAYER          = 0x5200,
-    QK_DEF_LAYER_MAX      = 0x52FF,
-    QK_TOGGLE_LAYER       = 0x5300,
-    QK_TOGGLE_LAYER_MAX   = 0x53FF,
-    QK_ONE_SHOT_LAYER     = 0x5400,
-    QK_ONE_SHOT_LAYER_MAX = 0x54FF,
-    QK_ONE_SHOT_MOD       = 0x5500,
-    QK_ONE_SHOT_MOD_MAX   = 0x55FF,
+    KK_TMK                = 0x0000,
+    KK_TMK_MAX            = 0x00FF,
+    KK_MODS               = 0x0100,
+    KK_LCTL               = 0x0100,
+    KK_LSFT               = 0x0200,
+    KK_LALT               = 0x0400,
+    KK_LGUI               = 0x0800,
+    KK_RCTL               = 0x1100,
+    KK_RSFT               = 0x1200,
+    KK_RALT               = 0x1400,
+    KK_RGUI               = 0x1800,
+    KK_MODS_MAX           = 0x1FFF,
+    KK_FUNCTION           = 0x2000,
+    KK_FUNCTION_MAX       = 0x2FFF,
+    KK_MACRO              = 0x3000,
+    KK_MACRO_MAX          = 0x3FFF,
+    KK_LAYER_TAP          = 0x4000,
+    KK_LAYER_TAP_MAX      = 0x4FFF,
+    KK_TO                 = 0x5000,
+    KK_TO_MAX             = 0x50FF,
+    KK_MOMENTARY          = 0x5100,
+    KK_MOMENTARY_MAX      = 0x51FF,
+    KK_DEF_LAYER          = 0x5200,
+    KK_DEF_LAYER_MAX      = 0x52FF,
+    KK_TOGGLE_LAYER       = 0x5300,
+    KK_TOGGLE_LAYER_MAX   = 0x53FF,
+    KK_ONE_SHOT_LAYER     = 0x5400,
+    KK_ONE_SHOT_LAYER_MAX = 0x54FF,
+    KK_ONE_SHOT_MOD       = 0x5500,
+    KK_ONE_SHOT_MOD_MAX   = 0x55FF,
 #ifndef DISABLE_CHORDING
-    QK_CHORDING           = 0x5600,
-    QK_CHORDING_MAX       = 0x56FF,
+    KK_CHORDING           = 0x5600,
+    KK_CHORDING_MAX       = 0x56FF,
 #endif
-    QK_MOD_TAP            = 0x6000,
-    QK_MOD_TAP_MAX        = 0x6FFF,
-    QK_TAP_DANCE          = 0x7100,
-    QK_TAP_DANCE_MAX      = 0x71FF,
+    KK_MOD_TAP            = 0x6000,
+    KK_MOD_TAP_MAX        = 0x6FFF,
+    KK_TAP_DANCE          = 0x7100,
+    KK_TAP_DANCE_MAX      = 0x71FF,
 #ifdef UNICODE_ENABLE
-    QK_UNICODE            = 0x8000,
-    QK_UNICODE_MAX        = 0xFFFF,
+    KK_UNICODE            = 0x8000,
+    KK_UNICODE_MAX        = 0xFFFF,
 #endif
 
     // Loose keycodes - to be used directly
@@ -168,18 +168,18 @@ enum quantum_keycodes {
 };
 
 // Ability to use mods in layouts
-#define LCTL(kc) (kc | QK_LCTL)
-#define LSFT(kc) (kc | QK_LSFT)
-#define LALT(kc) (kc | QK_LALT)
-#define LGUI(kc) (kc | QK_LGUI)
-#define RCTL(kc) (kc | QK_RCTL)
-#define RSFT(kc) (kc | QK_RSFT)
-#define RALT(kc) (kc | QK_RALT)
-#define RGUI(kc) (kc | QK_RGUI)
+#define LCTL(kc) (kc | KK_LCTL)
+#define LSFT(kc) (kc | KK_LSFT)
+#define LALT(kc) (kc | KK_LALT)
+#define LGUI(kc) (kc | KK_LGUI)
+#define RCTL(kc) (kc | KK_RCTL)
+#define RSFT(kc) (kc | KK_RSFT)
+#define RALT(kc) (kc | KK_RALT)
+#define RGUI(kc) (kc | KK_RGUI)
 
-#define HYPR(kc) (kc | QK_LCTL | QK_LSFT | QK_LALT | QK_LGUI)
-#define MEH(kc)  (kc | QK_LCTL | QK_LSFT | QK_LALT)
-#define LCAG(kc) (kc | QK_LCTL | QK_LALT | QK_LGUI)
+#define HYPR(kc) (kc | KK_LCTL | KK_LSFT | KK_LALT | KK_LGUI)
+#define MEH(kc)  (kc | KK_LCTL | KK_LSFT | KK_LALT)
+#define LCAG(kc) (kc | KK_LCTL | KK_LALT | KK_LGUI)
 
 #define MOD_HYPR 0xf
 #define MOD_MEH 0x7
@@ -189,7 +189,7 @@ enum quantum_keycodes {
 // Each key has a 4-letter code, and some have longer aliases too.
 // While the long aliases are descriptive, the 4-letter codes
 // make for nicer grid layouts (everything lines up), and are
-// the preferred style for Quantum.
+// the preferred style for Keystrokes.
 #define KC_TILD LSFT(KC_GRV)    // ~
 #define KC_TILDE    KC_TILD
 
@@ -257,18 +257,18 @@ enum quantum_keycodes {
 #define KC_DELT KC_DELETE // Del key (four letter code)
 
 // Alias for function layers than expand past FN31
-#define FUNC(kc) (kc | QK_FUNCTION)
+#define FUNC(kc) (kc | KK_FUNCTION)
 
 // Aliases
 #define S(kc) LSFT(kc)
 #define F(kc) FUNC(kc)
 
-#define M(kc) (kc | QK_MACRO)
+#define M(kc) (kc | KK_MACRO)
 
 #define MACRODOWN(...) (record->event.pressed ? MACRO(__VA_ARGS__) : MACRO_NONE)
 
 // L-ayer, T-ap - 256 keycode max, 16 layer max
-#define LT(layer, kc) (kc | QK_LAYER_TAP | ((layer & 0xF) << 8))
+#define LT(layer, kc) (kc | KK_LAYER_TAP | ((layer & 0xF) << 8))
 
 #define AG_SWAP MAGIC_SWAP_ALT_GUI
 #define AG_NORM MAGIC_UNSWAP_ALT_GUI
@@ -284,25 +284,25 @@ enum quantum_keycodes {
 // ON_PRESS    = 1
 // ON_RELEASE  = 2
 // Unless you have a good reason not to do so, prefer  ON_PRESS (1) as your default.
-#define TO(layer, when) (layer | QK_TO | (when << 0x4))
+#define TO(layer, when) (layer | KK_TO | (when << 0x4))
 
 // Momentary switch layer - 256 layer max
-#define MO(layer) (layer | QK_MOMENTARY)
+#define MO(layer) (layer | KK_MOMENTARY)
 
 // Set default layer - 256 layer max
-#define DF(layer) (layer | QK_DEF_LAYER)
+#define DF(layer) (layer | KK_DEF_LAYER)
 
 // Toggle to layer - 256 layer max
-#define TG(layer) (layer | QK_TOGGLE_LAYER)
+#define TG(layer) (layer | KK_TOGGLE_LAYER)
 
 // One-shot layer - 256 layer max
-#define OSL(layer) (layer | QK_ONE_SHOT_LAYER)
+#define OSL(layer) (layer | KK_ONE_SHOT_LAYER)
 
 // One-shot mod
-#define OSM(layer) (layer | QK_ONE_SHOT_MOD)
+#define OSM(layer) (layer | KK_ONE_SHOT_MOD)
 
 // M-od, T-ap - 256 keycode max
-#define MT(mod, kc) (kc | QK_MOD_TAP | ((mod & 0xF) << 8))
+#define MT(mod, kc) (kc | KK_MOD_TAP | ((mod & 0xF) << 8))
 #define CTL_T(kc) MT(MOD_LCTL, kc)
 #define SFT_T(kc) MT(MOD_LSFT, kc)
 #define ALT_T(kc) MT(MOD_LALT, kc)
@@ -320,7 +320,7 @@ enum quantum_keycodes {
     // For sending unicode codes.
     // You may not send codes over 7FFF -- this supports most of UTF8.
     // To have a key that sends out Œ, go UC(0x0152)
-    #define UNICODE(n) (n | QK_UNICODE)
+    #define UNICODE(n) (n | KK_UNICODE)
     #define UC(n) UNICODE(n)
 #endif
 

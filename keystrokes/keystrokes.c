@@ -1,4 +1,4 @@
-#include "quantum.h"
+#include "keystrokes.h"
 
 __attribute__ ((weak))
 bool process_action_kb(keyrecord_t *record) {
@@ -26,7 +26,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 static bool shift_interrupted[2] = {0, 0};
 
-bool process_record_quantum(keyrecord_t *record) {
+bool process_record_keystrokes(keyrecord_t *record) {
 
   /* This gets the keycode from the key pressed */
   keypos_t key = record->event.key;
@@ -345,14 +345,14 @@ void tap_random_base64(void) {
   }
 }
 
-void matrix_init_quantum() {
+void matrix_init_keystrokes() {
   #ifdef BACKLIGHT_ENABLE
     backlight_init_ports();
   #endif
   matrix_init_kb();
 }
 
-void matrix_scan_quantum() {
+void matrix_scan_keystrokes() {
   #ifdef AUDIO_ENABLE
     matrix_scan_music();
   #endif

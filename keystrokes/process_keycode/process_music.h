@@ -1,7 +1,7 @@
 #ifndef PROCESS_MUSIC_H
 #define PROCESS_MUSIC_H
 
-#include "quantum.h"
+#include "keystrokes.h"
 
 bool process_music(uint16_t keycode, keyrecord_t *record);
 

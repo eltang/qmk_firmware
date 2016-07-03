@@ -8,7 +8,7 @@
 #include "musical_notes.h"
 #include "song_list.h"
 #include "voices.h"
-#include "quantum.h"
+#include "keystrokes.h"
 
 // Largely untested PWM audio mode (doesn't sound as good)
 // #define PWM_AUDIO

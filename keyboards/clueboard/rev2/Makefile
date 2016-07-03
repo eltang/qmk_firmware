@@ -1,5 +1,5 @@
 BACKLIGHT_ENABLE = yes
 
-ifndef QUANTUM_DIR
+ifndef KEYSTROKES_DIR
 	include ../../../Makefile
 endif

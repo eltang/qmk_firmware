@@ -298,7 +298,7 @@ def parse_valid_keys(config, out_path):
         path = os.path.join(basepath, *subpaths)
         dirpaths.append(path)
         dirpaths.append(os.path.join(path, "tmk_core", "common"))
-        dirpaths.append(os.path.join(path, "quantum"))
+        dirpaths.append(os.path.join(path, "keystrokes"))
         subpaths.append('..')
 
     includes = set(config['keymaps_includes'])

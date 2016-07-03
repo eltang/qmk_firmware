@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# This script will attempt to setup the Linux dependencies for compiling QMK/TMK
+# This script will attempt to setup the Linux dependencies for compiling
+# Keystrokes
 
 # This could probably go much lower, but since we are including an Arch vagrant,
 # making it the first match makes sense
@@ -86,7 +87,7 @@ elif [[ -n "$(type -P zypper)" ]]; then
     wget \
     dfu-programmer \
     git
-  # TODO: The avr and eabi tools are not available as default packages, so we need 
+  # TODO: The avr and eabi tools are not available as default packages, so we need
   # another way to install them
 
 fi

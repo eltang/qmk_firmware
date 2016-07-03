@@ -22,8 +22,8 @@ your own:
  [hex]: https://raw.githubusercontent.com/algernon/ergodox-supercoder/master/supercoder.hex
 
 ```
-$ git clone https://github.com/jackhumbert/qmk_firmware.git
-$ cd qmk_firmware/keyboards/ergodox_ez
+$ git clone https://github.com/eltang/keystrokes.git
+$ cd keystrokes/keyboards/ergodox_ez
 $ git clone https://github.com/algernon/ergodox-supercoder.git keymaps/supercoder
 $ make KEYMAP=supercoder
 ```

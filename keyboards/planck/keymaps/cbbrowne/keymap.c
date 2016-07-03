@@ -3,7 +3,7 @@
   #include "backlight.h"
 #endif
 #include "config.h"
-#include "quantum.h"
+#include "keystrokes.h"
 
 /* Each layer is given a name to aid in readability, which is then
    used in the keymap matrix below.  The underscores do not denote 
@@ -138,7 +138,7 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
     break;
   case M_VERSION:
     if (record->event.pressed) {
-      SEND_STRING(QMK_KEYBOARD "/" QMK_KEYMAP "@" QMK_VERSION "@" QMK_BUILDDATE);
+      SEND_STRING(KEYSTROKES_KEYBOARD "/" KEYSTROKES_KEYMAP "@" KEYSTROKES_VERSION "@" KEYSTROKES_BUILDDATE);
     }
     break;
   case M_RANDDIGIT:

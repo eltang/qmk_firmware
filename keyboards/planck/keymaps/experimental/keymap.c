@@ -1,4 +1,4 @@
-// This is the canonical layout file for the Quantum project. If you want to add another keyboard,
+// This is the canonical layout file for the Keystrokes project. If you want to add another keyboard,
 // this is the style you want to emulate.
 
 #include "planck.h"
@@ -347,7 +347,7 @@ void matrix_scan_user(void) {
       tap_random_base64();
     }
     SEQ_ONE_KEY (KC_V) {
-      SEND_STRING (QMK_KEYBOARD "/" QMK_KEYMAP " @ " QMK_VERSION);
+      SEND_STRING (KEYSTROKES_KEYBOARD "/" KEYSTROKES_KEYMAP " @ " KEYSTROKES_VERSION);
     }
     SEQ_ONE_KEY(KC_F) {
       SEND_STRING("if yes\n\tpeanut butter\nelse\n\trice snacks");

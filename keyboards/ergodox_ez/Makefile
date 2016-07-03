@@ -81,6 +81,6 @@ NKRO_ENABLE      ?= yes # USB Nkey Rollover - if this doesn't work, see here: ht
 MIDI_ENABLE      ?= no  # MIDI controls
 UNICODE_ENABLE   ?= yes # Unicode
 
-ifndef QUANTUM_DIR
+ifndef KEYSTROKES_DIR
 	include ../../Makefile
 endif

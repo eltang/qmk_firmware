@@ -1,7 +1,7 @@
 #ifndef ARROW_PAD_H
 #define ARROW_PAD_H
 
-#include "quantum.h"
+#include "keystrokes.h"
 #include "matrix.h"
 #include "keymap.h"
 #ifdef BACKLIGHT_ENABLE

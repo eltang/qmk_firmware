@@ -1,5 +1,5 @@
 #!/bin/sh
-# Script to make a new quantum project
+# Script to make a new Keystrokes project
 # Jack Humbert 2015
 
 if [ -z "$1" ]; then
@@ -15,15 +15,15 @@ KEYBOARD_UPPERCASE=$(echo $1 | awk '{print toupper($0)}')
 mkdir keyboards/$1
 mkdir keyboards/$1/keymaps
 mkdir keyboards/$1/keymaps/default
-sed -e "s;%KEYBOARD%;$KEYBOARD;g" -e "s;%KEYBOARD_UPPERCASE%;$KEYBOARD_UPPERCASE;g" quantum/template/template.h > keyboards/$KEYBOARD/$KEYBOARD.h
-sed -e "s;%KEYBOARD%;$KEYBOARD;g" quantum/template/template.c > keyboards/$KEYBOARD/$KEYBOARD.c
-sed -e "s;%KEYBOARD%;$KEYBOARD;g" quantum/template/config.h > keyboards/$KEYBOARD/config.h
-sed -e "s;%KEYBOARD%;$KEYBOARD;g" quantum/template/readme.md > keyboards/$KEYBOARD/readme.md
-sed -e "s;%KEYBOARD%;$KEYBOARD;g" quantum/template/Makefile > keyboards/$KEYBOARD/Makefile
-sed -e "s;%KEYBOARD%;$KEYBOARD;g" quantum/template/keymaps/default/config.h > keyboards/$KEYBOARD/keymaps/default/config.h
-sed -e "s;%KEYBOARD%;$KEYBOARD;g" quantum/template/keymaps/default/keymap.c > keyboards/$KEYBOARD/keymaps/default/keymap.c
-sed -e "s;%KEYBOARD%;$KEYBOARD;g" quantum/template/keymaps/default/Makefile > keyboards/$KEYBOARD/keymaps/default/Makefile
-sed -e "s;%KEYBOARD%;$KEYBOARD;g" quantum/template/keymaps/default/readme.md > keyboards/$KEYBOARD/keymaps/default/readme.md
+sed -e "s;%KEYBOARD%;$KEYBOARD;g" -e "s;%KEYBOARD_UPPERCASE%;$KEYBOARD_UPPERCASE;g" keystrokes/template/template.h > keyboards/$KEYBOARD/$KEYBOARD.h
+sed -e "s;%KEYBOARD%;$KEYBOARD;g" keystrokes/template/template.c > keyboards/$KEYBOARD/$KEYBOARD.c
+sed -e "s;%KEYBOARD%;$KEYBOARD;g" keystrokes/template/config.h > keyboards/$KEYBOARD/config.h
+sed -e "s;%KEYBOARD%;$KEYBOARD;g" keystrokes/template/readme.md > keyboards/$KEYBOARD/readme.md
+sed -e "s;%KEYBOARD%;$KEYBOARD;g" keystrokes/template/Makefile > keyboards/$KEYBOARD/Makefile
+sed -e "s;%KEYBOARD%;$KEYBOARD;g" keystrokes/template/keymaps/default/config.h > keyboards/$KEYBOARD/keymaps/default/config.h
+sed -e "s;%KEYBOARD%;$KEYBOARD;g" keystrokes/template/keymaps/default/keymap.c > keyboards/$KEYBOARD/keymaps/default/keymap.c
+sed -e "s;%KEYBOARD%;$KEYBOARD;g" keystrokes/template/keymaps/default/Makefile > keyboards/$KEYBOARD/keymaps/default/Makefile
+sed -e "s;%KEYBOARD%;$KEYBOARD;g" keystrokes/template/keymaps/default/readme.md > keyboards/$KEYBOARD/keymaps/default/readme.md
 
 echo "######################################################"
 echo "# /keyboards/$KEYBOARD project created. To start"

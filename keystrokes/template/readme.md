@@ -1,13 +1,13 @@
 %KEYBOARD% keyboard firmware
 ======================
 
-## Quantum MK Firmware
+## Keystrokes
 
-For the full Quantum feature list, see [the parent readme.md](/doc/readme.md).
+For the full Keystrokes feature list, see [the parent readme.md](/doc/readme.md).
 
 ## Building
 
-Download or clone the whole firmware and navigate to the keyboards/%KEYBOARD% folder. Once your dev env is setup, you'll be able to type `make` to generate your .hex - you can then use the Teensy Loader to program your .hex file. 
+Download or clone the whole firmware and navigate to the keyboards/%KEYBOARD% folder. Once your dev env is setup, you'll be able to type `make` to generate your .hex - you can then use the Teensy Loader to program your .hex file.
 
 Depending on which keymap you would like to use, you will have to compile slightly differently.
 
@@ -22,7 +22,7 @@ Several version of keymap are available in advance but you are recommended to de
 To build the firmware binary hex file with a keymap just do `make` with `keymap` option like:
 
 ```
-$ make keymap=[default|jack|<name>]
+$ make keymap=[default|eric|<name>]
 ```
 
 Keymaps follow the format **__keymap.c__** and are stored in folders in the `keymaps` folder, eg `keymaps/my_keymap/`

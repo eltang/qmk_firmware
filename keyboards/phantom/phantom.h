@@ -1,7 +1,7 @@
 #ifndef PHANTOM_H
 #define PHANTOM_H
 
-#include "quantum.h"
+#include "keystrokes.h"
 
 /* Phantom matrix layout
    * ,-----------------------------------------------------------------------------.

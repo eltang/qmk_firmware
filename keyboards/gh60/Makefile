@@ -68,7 +68,7 @@ NKRO_ENABLE ?= yes			# USB Nkey Rollover - if this doesn't work, see here: https
 # BLUETOOTH_ENABLE ?= yes	# Enable Bluetooth with the Adafruit EZ-Key HID
 
 
-ifndef QUANTUM_DIR
+ifndef KEYSTROKES_DIR
 	include ../../Makefile
 endif
 

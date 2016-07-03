@@ -159,7 +159,7 @@ uint8_t matrix_scan(void)
         suspend_power_down();
     }
 
-    matrix_scan_quantum();
+    matrix_scan_keystrokes();
 
     return 1;
 }

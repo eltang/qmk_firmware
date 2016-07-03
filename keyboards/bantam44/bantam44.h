@@ -1,7 +1,7 @@
 #ifndef BANTAM44_H
 #define BANTAM44_H
 
-#include "quantum.h"
+#include "keystrokes.h"
 
 // This a shortcut to help you visually see your layout.
 // The following is an example using the Planck MIT layout

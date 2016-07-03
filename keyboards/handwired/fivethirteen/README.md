@@ -1,9 +1,9 @@
 fivethirteen keyboard firmware
 ======================
 
-## Quantum MK Firmware
+## Keystrokes
 
-For the full Quantum feature list, see [the parent readme.md](/doc/readme.md).
+For the full Keystrokes feature list, see [the parent readme.md](/doc/readme.md).
 
 ## Building
 
@@ -22,7 +22,7 @@ To build with the default keymap, simply run `make`.
 To build the firmware binary hex file with a keymap just do `make` with `keymap` option like:
 
 ```
-$ make keymap=[default|jack|<name>]
+$ make keymap=[default|eric|<name>]
 ```
 
 Keymaps follow the format **__keymap.c__** and are stored in folders in the `keymaps` folder, eg `keymaps/my_keymap/`

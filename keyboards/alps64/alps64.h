@@ -17,7 +17,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #ifndef ALPS64_H
 #define ALPS64_H
 
-#include "quantum.h"
+#include "keystrokes.h"
 
 /* Alps64 keymap definition macro */
 #define KEYMAP( \

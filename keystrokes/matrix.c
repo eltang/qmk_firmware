@@ -53,12 +53,12 @@ static matrix_col_t read_rows(void);
 #endif
 
 __attribute__ ((weak))
-void matrix_init_quantum(void) {
+void matrix_init_keystrokes(void) {
     matrix_init_kb();
 }
 
 __attribute__ ((weak))
-void matrix_scan_quantum(void) {
+void matrix_scan_keystrokes(void) {
     matrix_scan_kb();
 }
 
@@ -140,7 +140,7 @@ void matrix_init(void) {
         _SFR_IO8((row_pins[r] >> 4) + 2) |= _BV(row_pins[r] & 0xF);
     }
 #endif
-    matrix_init_quantum();
+    matrix_init_keystrokes();
 }
 
 #if DIODE_DIRECTION == COL2ROW
@@ -167,7 +167,7 @@ uint8_t matrix_scan(void) {
             }
         }
     }
-    matrix_scan_quantum();
+    matrix_scan_keystrokes();
     return 1;
 }
 
@@ -215,7 +215,7 @@ uint8_t matrix_scan(void) {
             }
         }
     }
-    matrix_scan_quantum();
+    matrix_scan_keystrokes();
     return 1;
 }
 

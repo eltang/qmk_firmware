@@ -1,7 +1,7 @@
 atreus keyboard firmware
 ======================
 
-## Quantum MK Firmware
+## Keystrokes
 
 You have access to a bunch of goodies! Check out the Makefile to enable/disable some of the features. Uncomment the `#` to enable them. Setting them to `no` does nothing and will only confuse future you.
 
@@ -43,7 +43,7 @@ You can also chain these, like this:
 
     LALT(LCTL(KC_DEL)) -- this makes a key that sends Alt, Control, and Delete in a single keypress.
 
-The following shortcuts automatically add `LSFT()` to keycodes to get commonly used symbols. Their long names are also available and documented in `/quantum/keymap_common.h`.
+The following shortcuts automatically add `LSFT()` to keycodes to get commonly used symbols. Their long names are also available and documented in `/keystrokes/keymap_common.h`.
 
     KC_TILD  ~
     KC_EXLM  !
@@ -88,7 +88,7 @@ We've added shortcuts to make common modifier/tap (mod-tap) mappings more compac
 
 ### Remember: These are just aliases
 
-These functions work the same way that their `ACTION_*` functions do - they're just quick aliases. To dig into all of the tmk ACTION_* functions, please see the [TMK documentation](https://github.com/jackhumbert/qmk_firmware/blob/master/tmk_core/doc/keymap.md#2-action).
+These functions work the same way that their `ACTION_*` functions do - they're just quick aliases. To dig into all of the tmk ACTION_* functions, please see the [TMK documentation](https://github.com/eltang/keystrokes/blob/master/tmk_core/doc/keymap.md#2-action).
 
 Instead of using `FNx` when defining `ACTION_*` functions, you can use `F(x)` - the benefit here is being able to use more than 32 function actions (up to 4096), if you happen to need them.
 
@@ -139,7 +139,7 @@ To give an example, if you're using software-implemented Colemak, and want to ge
 
 ## Additional language support
 
-In `quantum/keymap_extras/`, you'll see various language files - these work the same way as the alternative layout ones do. Most are defined by their two letter country/language code followed by an underscore and a 4-letter abbreviation of its name. `FR_UGRV` which will result in a `ù` when using a software-implemented AZERTY layout. It's currently difficult to send such characters in just the firmware (but it's being worked on - see Unicode support).
+In `keystrokes/keymap_extras/`, you'll see various language files - these work the same way as the alternative layout ones do. Most are defined by their two letter country/language code followed by an underscore and a 4-letter abbreviation of its name. `FR_UGRV` which will result in a `ù` when using a software-implemented AZERTY layout. It's currently difficult to send such characters in just the firmware (but it's being worked on - see Unicode support).
 
 ## Unicode support
 
@@ -161,7 +161,7 @@ Enable the backlight from the Makefile.
 
 ## MIDI functionalty
 
-This is still a WIP, but check out `quantum/keymap_midi.c` to see what's happening. Enable from the Makefile.
+This is still a WIP, but check out `keystrokes/keymap_midi.c` to see what's happening. Enable from the Makefile.
 
 ## Bluetooth functionality
 
@@ -181,6 +181,6 @@ Several version of keymap are available in advance but you are recommended to de
 
 To build the firmware binary hex file with a keymap just do `make` with `KEYMAP` option like:
 ```
-$ make KEYMAP=[default|jack|<name>]
+$ make KEYMAP=[default|eric|<name>]
 ```
 Keymaps follow the format **__\<name\>.c__** and are stored in the `keymaps` folder.

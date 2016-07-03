@@ -74,7 +74,7 @@ CUSTOM_MATRIX    ?= yes # Custom matrix file for the HHKB
 
 
 
-ifndef QUANTUM_DIR
+ifndef KEYSTROKES_DIR
 	include ../../Makefile
 endif
 

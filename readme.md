@@ -1,34 +1,12 @@
-# Quantum Mechanical Keyboard Firmware
+# Keystrokes
 
-[![Build Status](https://travis-ci.org/jackhumbert/qmk_firmware.svg?branch=master)](https://travis-ci.org/jackhumbert/qmk_firmware)
+[![Build Status](https://travis-ci.org/eltang/keystrokes.svg?branch=master)](https://travis-ci.org/eltang/keystrokes)
 
-This is a keyboard firmware based on the [tmk_keyboard firmware](http://github.com/tmk/tmk_keyboard) with some useful features for Atmel AVR controllers, and more specifically, the [OLKB product line](http://olkb.com), the [ErgoDox EZ](http://www.ergodox-ez.com) keyboard, and the [Clueboard product line](http://clueboard.co/).
+Keystrokes is a sophisticated keyboard firmware based on [QMK](http://github.com/jackhmubert/qmk_firmware). This document gives a quick summary of ways to use Keystrokes.
 
-## Official website
+# Maintainers
 
-For an easy-to-read version of this document and the repository, check out [http://qmk.fm](http://qmk.fm). Nicely formatted keyboard and keymap listings are also available there, along with the ability to download .hex files instead of having to setup a build environment and compile them.
-
-## Included Keyboards
-
-* [Planck](/keyboards/planck/)
-* [Preonic](/keyboards/preonic/)
-* [Atomic](/keyboards/atomic/)
-* [ErgoDox EZ](/keyboards/ergodox_ez/)
-* [Clueboard](/keyboards/clueboard/)
-* [Cluepad](/keyboards/cluepad/)
-
-The project also includes community support for [lots of other keyboards](/keyboards/).
-
-## Maintainers
-
-QMK is developed and maintained by Jack Humbert of OLKB with contributions from the community, and of course, [Hasu](https://github.com/tmk). This repo used to be a fork of [TMK](https://github.com/tmk/tmk_keyboard), and we are incredibly grateful for his founding contributions to the firmware. We've had to break the fork due to purely technical reasons - it simply became too different over time, and we've had to start refactoring some of the basic bits and pieces. We are huge fans of TMK and Hasu :)
-
-This documentation is edited and maintained by Erez Zukerman of ErgoDox EZ. If you spot any typos or inaccuracies, please [open an issue](https://github.com/jackhumbert/qmk_firmware/issues/new).
-#### 2016/02/10
-core: flabbergast's Chibios protocol was merged from <https://github.com/flabbergast/tmk_keyboard/tree/chibios> (@72b1668). See [tmk_core/protocol/chibios/README.md](tmk_core/protocol/chibios/README.md). Chibios protocol supports Cortex-M such as STM32 and Kinetis.
-
-
-The OLKB product firmwares are maintained by [Jack Humbert](https://github.com/jackhumbert), the Ergodox EZ by [Erez Zukerman](https://github.com/ezuk), and the Clueboard by [Zach White](https://github.com/skullydazed).
+Keystrokes is built by Eric Tang. If there is a keyboard that you would like supported and/or a feature that you would like created, add a request [here]() and Eric will try to fulfill your request at the earliest opportunity.
 
 ## Documentation roadmap
 
@@ -37,12 +15,12 @@ This is not a tiny project. While this is the main readme, there are many other 
 * The readme for your own keyboard: This is found under `keyboards/<your keyboards's name>/`. So for the ErgoDox EZ, it's [here](keyboards/ergodox_ez/); for the Planck, it's [here](keyboards/planck/) and so on.
 * The list of possible keycodes you can use in your keymap is actually spread out in a few different places:
   * [doc/keycode.txt](doc/keycode.txt) - an explanation of those same keycodes.
-  * [quantum/keymap.h](quantum/keymap.h) - this is where the QMK-specific aliases are all set up. Things like the Hyper and Meh key, the Leader key, and all of the other QMK innovations. These are also explained and documented below, but `keymap.h` is where they're actually defined.
-* The [TMK documentation](doc/TMK_readme.md). QMK is based on TMK, and this explains how it works internally.
+  * [keystrokes/keymap.h](keystrokes/keymap.h) - this is where aliases are all set up. Things like the Hyper and Meh key, the Leader key, and all of the other innovations. These are also explained and documented below, but `keymap.h` is where they're actually defined.
+* The [TMK documentation](doc/TMK_README.md). Keystrokes is based on QMK, which is in turn based on TMK, and this explains how it works internally.
 
 # Getting started
 
-Before you are able to compile, you'll need to install an environment for AVR development. You'll find the instructions for any OS below. If you find another/better way to set things up from scratch, please consider [making a pull request](https://github.com/jackhumbert/qmk_firmware/pulls) with your changes!
+Before you are able to compile, you'll need to install an environment for AVR development. You'll find the instructions for any OS below. If you find another/better way to set things up from scratch, please consider [making a pull request](https://github.com/eltang/keystrokes/pulls) with your changes!
 
 ## Build Environment Setup
 
@@ -50,7 +28,7 @@ Before you are able to compile, you'll need to install an environment for AVR de
 1. If you have ever installed WinAVR, uninstall it.
 2. Install [MHV AVR Tools](https://infernoembedded.com/sites/default/files/project/MHV_AVR_Tools_20131101.exe). Disable smatch, but **be sure to leave the option to add the tools to the PATH checked**.
 3. Install [MinGW](https://sourceforge.net/projects/mingw/files/Installer/mingw-get-setup.exe/download). During installation, uncheck the option to install a graphical user interface. **DO NOT change the default installation folder.** The scripts depend on the default location.
-4. Clone this repository. [This link will download it as a zip file, which you'll need to extract.](https://github.com/jackhumbert/qmk_firmware/archive/master.zip) Open the extracted folder in Windows Explorer.
+4. Clone this repository. [This link will download it as a zip file, which you'll need to extract.](https://github.com/eltang/keystrokes/archive/master.zip) Open the extracted folder in Windows Explorer.
 5. Double-click on the 1-setup-path-win batch script to run it. You'll need to accept a User Account Control prompt. Press the spacebar to dismiss the success message in the command prompt that pops up.
 6. Right-click on the 2-setup-environment-win batch script, select "Run as administrator", and accept the User Account Control prompt. This part may take a couple of minutes, and you'll need to approve a driver installation, but once it finishes, your environment is complete!
 7. Future build commands should be run from the MHV AVR Shell, which sets up an environment compatible with colorful build output. The standard Command Prompt will also work, but add `COLOR=false` to the end of all make commands when using it.
@@ -82,9 +60,9 @@ Debian/Ubuntu example:
 If you have any problems building the firmware, you can try using a tool called Vagrant. It will set up a virtual computer with a known configuration that's ready-to-go for firmware building. OLKB does NOT host the files for this virtual computer. Details on how to set up Vagrant are in the [VAGRANT_GUIDE file](VAGRANT_GUIDE.md).
 
 ## Verify Your Installation
-1. If you haven't already, obtain this repository ([https://github.com/jackhumbert/qmk_firmware](https://github.com/jackhumbert/qmk_firmware)). You can either download it as a zip file and extract it, or clone it using the command line tool git or the Github Desktop application.
-2. Open up a terminal or command prompt and navigate to the `qmk_firmware` folder using the `cd` command. The command prompt will typically open to your home directory. If, for example, you cloned the repository to your Documents folder, then you would type `cd Documents/qmk_firmware`. If you extracted the file from a zip, then it may be named `qmk_firmware-master` instead.
-3. To confirm that you're in the correct location, you can display the contents of your current folder using the `dir` command on Windows, or the `ls` command on Linux or Mac. You should see several files, including `readme.md` and a `quantum` folder. From here, you need to navigate to the appropriate folder under `keyboards/`. For example, if you're building for a Planck, run `cd keyboards/planck`.
+1. If you haven't already, obtain this repository ([https://github.com/eltang/keystrokes](https://github.com/eltang/keystrokes)). You can either download it as a zip file and extract it, or clone it using the command line tool git or the Github Desktop application.
+2. Open up a terminal or command prompt and navigate to the `keystrokes` folder using the `cd` command. The command prompt will typically open to your home directory. If, for example, you cloned the repository to your Documents folder, then you would type `cd Documents/keystrokes`. If you extracted the file from a zip, then it may be named `keystrokes-master` instead.
+3. To confirm that you're in the correct location, you can display the contents of your current folder using the `dir` command on Windows, or the `ls` command on Linux or Mac. You should see several files, including `readme.md` and a `keystrokes` folder. From here, you need to navigate to the appropriate folder under `keyboards/`. For example, if you're building for a Planck, run `cd keyboards/planck`.
 4. Once you're in the correct keyboard-specific folder, run the `make` command. This should output a lot of information about the build process. More information about the `make` command can be found below.
 
 # Customizing your keymap
@@ -93,22 +71,22 @@ In every keymap folder, the following files are recommended:
 
 * `config.h` - the options to configure your keymap
 * `keymap.c` - all of your keymap code, required
-* `Makefile` - the features of QMK that are enabled, required to run `make` in your keymap folder
-* `readme.md` - a description of your keymap, how others might use it, and explanations of features 
+* `Makefile` - the features that are enabled, required to run `make` in your keymap folder
+* `readme.md` - a description of your keymap, how others might use it, and explanations of features
 
 ## The `make` command
 
 The `make` command is how you compile the firmware into a .hex file, which can be loaded by a dfu programmer (like dfu-progammer via `make dfu`) or the [Teensy loader](https://www.pjrc.com/teensy/loader.html) (only used with Teensys). You can run `make` from the root (`/`), your keyboard folder (`/keyboards/<keyboard>/`), or your keymap folder (`/keyboards/<keyboard>/keymaps/<keymap>/`) if you have a `Makefile` there (see the example [here](/doc/keymap_makefile_example.mk)).
 
-By default, this will generate a `<keyboard>_<keymap>.hex` file in whichever folder you run `make` from. These files are ignored by git, so don't worry about deleting them when committing/creating pull requests. Your .hex file will also be available on qmk.fm/keyboards/<keyboard>/keymaps/<keymap>/.
+By default, this will generate a `<keyboard>_<keymap>.hex` file in whichever folder you run `make` from. These files are ignored by git, so don't worry about deleting them when committing/creating pull requests.
 
 Below are some definitions that will be useful:
 
-* The "root" (`/`) folder is the qmk_firmware folder, in which are `doc`, `keyboard`, `quantum`, etc.
+* The "root" (`/`) folder is the keystrokes folder, in which are `doc`, `keyboard`, `keystrokes`, etc.
 * The "keyboard" folder is any keyboard project's folder, like `/keyboards/planck`.
 * The "keymap" folder is any keymap's folder, like `/keyboards/planck/keymaps/default`.
 
-Below is a list of the useful `make` commands in QMK:
+Below is a list of the useful `make` commands:
 
 * `make` - cleans automatically and builds your keyboard and keymap depending on which folder you're in. This defaults to the "default" layout (unless in a keymap folder), and Planck keyboard in the root folder
   * `make keyboard=<keyboard>` - specifies the keyboard (only to be used in root)
@@ -177,7 +155,7 @@ This enables your backlight on Timer1 and ports B5, B6, or B7 (for now). You can
 
 `MIDI_ENABLE`
 
-This enables MIDI sending and receiving with your keyboard. To enter MIDI send mode, you can use the keycode `MI_ON`, and `MI_OFF` to turn it off. This is a largely untested feature, but more information can be found in the `quantum/quantum.c` file.
+This enables MIDI sending and receiving with your keyboard. To enter MIDI send mode, you can use the keycode `MI_ON`, and `MI_OFF` to turn it off. This is a largely untested feature, but more information can be found in the `keystrokes/keystrokes.c` file.
 
 `UNICODE_ENABLE`
 
@@ -250,7 +228,7 @@ You can also chain these, like this:
 
     LALT(LCTL(KC_DEL)) -- this makes a key that sends Alt, Control, and Delete in a single keypress.
 
-The following shortcuts automatically add `LSFT()` to keycodes to get commonly used symbols. Their long names are also available and documented in `/quantum/keymap_common.h`.
+The following shortcuts automatically add `LSFT()` to keycodes to get commonly used symbols. Their long names are also available and documented in `/keystrokes/keymap_common.h`.
 
     KC_TILD  ~
     KC_EXLM  !
@@ -302,7 +280,7 @@ We've added shortcuts to make common modifier/tap (mod-tap) mappings more compac
 
 Steve Losh [described](http://stevelosh.com/blog/2012/10/a-modern-space-cadet/) the Space Cadet Shift quite well. Essentially, you hit the left Shift on its own, and you get an opening parenthesis; hit the right Shift on its own, and you get the closing one. When hit with other keys, the Shift key keeps working as it always does. Yes, it's as cool as it sounds.
 
-To use it, use `KC_LSPO` (Left Shift, Parens Open) for your left Shift on your keymap, and `KC_RSPC` (Right Shift, Parens Close) for your right Shift. 
+To use it, use `KC_LSPO` (Left Shift, Parens Open) for your left Shift on your keymap, and `KC_RSPC` (Right Shift, Parens Close) for your right Shift.
 
 It's defaulted to work on US keyboards, but if your layout uses different keys for parenthesis, you can define those in your `config.h` like this:
 
@@ -380,7 +358,7 @@ rounded up (5 bits per key). For example on Planck (48 keys) it uses
 
 ### Remember: These are just aliases
 
-These functions work the same way that their `ACTION_*` functions do - they're just quick aliases. To dig into all of the tmk ACTION_* functions, please see the [TMK documentation](https://github.com/jackhumbert/qmk_firmware/blob/master/doc/keymap.md#2-action).
+These functions work the same way that their `ACTION_*` functions do - they're just quick aliases. To dig into all of the tmk ACTION_* functions, please see the [TMK documentation](doc/keymap.md#2-action).
 
 Instead of using `FNx` when defining `ACTION_*` functions, you can use `F(x)` - the benefit here is being able to use more than 32 function actions (up to 4096), if you happen to need them.
 
@@ -497,7 +475,7 @@ It's best to declare the `static uint16_t key_timer;` outside of the macro block
 
 #### Example: Single-key copy/paste (hold to copy, tap to paste)
 
-With QMK, it's easy to make one key do two things, as long as one of those things is being a modifier. :) So if you want a key to act as Ctrl when held and send the letter R when tapped, that's easy: `CTL_T(KC_R)`. But what do you do when you want that key to send Ctrl-V (paste) when tapped, and Ctrl-C (copy) when held?
+It's easy to make one key do two things, as long as one of those things is being a modifier. :) So if you want a key to act as Ctrl when held and send the letter R when tapped, that's easy: `CTL_T(KC_R)`. But what do you do when you want that key to send Ctrl-V (paste) when tapped, and Ctrl-C (copy) when held?
 
 Here's what you do:
 
@@ -546,7 +524,7 @@ To give an example, if you're using software-implemented Colemak, and want to ge
 
 ## Additional language support
 
-In `quantum/keymap_extras/`, you'll see various language files - these work the same way as the alternative layout ones do. Most are defined by their two letter country/language code followed by an underscore and a 4-letter abbreviation of its name. `FR_UGRV` which will result in a `ù` when using a software-implemented AZERTY layout. It's currently difficult to send such characters in just the firmware (but it's being worked on - see Unicode support).
+In `keystrokes/keymap_extras/`, you'll see various language files - these work the same way as the alternative layout ones do. Most are defined by their two letter country/language code followed by an underscore and a 4-letter abbreviation of its name. `FR_UGRV` which will result in a `ù` when using a software-implemented AZERTY layout. It's currently difficult to send such characters in just the firmware (but it's being worked on - see Unicode support).
 
 ## Unicode support
 
@@ -566,7 +544,7 @@ You can currently send 4 hex digits with your OS-specific modifier key (RALT for
 
 Enable the backlight from the Makefile.
 
-# Custom Quantum functions
+# Custom Keystrokes functions
 
 All of these functions are available in the `*_kb()` or `*_user()` variety. `kb` ones should only be used in the `<keyboard>/<keyboard>.c` file, and `user` ones should only be used in the `keymap.c`. The keyboard ones call the user ones - it's necessary to keep these calls to allow the keymap functions to work correctly.
 
@@ -580,7 +558,7 @@ This function gets called at every matrix scan, which is basically as often as t
 
 ## `bool process_record_*(uint16_t keycode, keyrecord_t *record)`
 
-This function gets called on every keypress/release, and is where you can define custom functionality. The return value is whether or not QMK should continue processing the keycode - returning `false` stops the execution.
+This function gets called on every keypress/release, and is where you can define custom functionality. The return value is whether or not the keycode should continue to be processed - returning `false` stops the execution.
 
 The `keycode` variable is whatever is defined in your keymap, eg `MO(1)`, `KC_L`, etc. and can be switch-cased to execute code whenever a particular code is pressed.
 
@@ -621,7 +599,7 @@ and can be tested against the `usb_led` with a conditional like `if (usb_led & (
 
 Your keyboard can make sounds! If you've got a Planck, Preonic, or basically any keyboard that allows access to the C6 port, you can hook up a simple speaker and make it beep. You can use those beeps to indicate layer transitions, modifiers, special keys, or just to play some funky 8bit tunes.
 
-The audio code lives in [quantum/audio/audio.h](/quantum/audio/audio.h) and in the other files in the audio directory. It's enabled by default on the Planck [stock keymap](/keyboards/planck/keymaps/default/keymap.c). Here are the important bits:
+The audio code lives in [keystrokes/audio/audio.h](/keystrokes/audio/audio.h) and in the other files in the audio directory. It's enabled by default on the Planck [stock keymap](/keyboards/planck/keymaps/default/keymap.c). Here are the important bits:
 
 ```
 #include "audio.h"
@@ -668,7 +646,7 @@ This is inside one of the macros. So when that macro executes, your keyboard pla
 
 ## MIDI functionalty
 
-This is still a WIP, but check out `quantum/keymap_midi.c` to see what's happening. Enable from the Makefile.
+This is still a WIP, but check out `keystrokes/keymap_midi.c` to see what's happening. Enable from the Makefile.
 
 ## Bluetooth functionality
 
@@ -696,7 +674,7 @@ AutoHotkey inserts the Text right of `Send, ` when this combination is pressed.
 
 ## RGB Under Glow Mod
 
-![Planck with RGB Underglow](https://raw.githubusercontent.com/yangliu/qmk_firmware/planck-rgb/keyboards/planck/keymaps/yang/planck-with-rgb-underglow.jpg)
+![Planck with RGB Underglow](keyboards/planck/keymaps/yang/planck-with-rgb-underglow.jpg)
 
 Here is a quick demo on Youtube (with NPKC KC60) (https://www.youtube.com/watch?v=VKrpPAHlisY).
 
@@ -726,7 +704,7 @@ The firmware supports 5 different light effects, and the color (hue, saturation,
 
 ### WS2812 Wiring
 
-![WS2812 Wiring](https://raw.githubusercontent.com/yangliu/qmk_firmware/planck-rgb/keyboards/planck/keymaps/yang/WS2812-wiring.jpg)
+![WS2812 Wiring](keyboards/planck/keymaps/yang/WS2812-wiring.jpg)
 
 Please note the USB port can only supply a limited amount of power to the keyboard (500mA by standard, however, modern computer and most usb hubs can provide 700+mA.). According to the data of NeoPixel from Adafruit, 30 WS2812 LEDs require a 5V 1A power supply, LEDs used in this mod should not more than 20.
 
@@ -751,7 +729,7 @@ what things are (and likely aren't) too risky.
   firmware repeatedly and continually; that'll burn the EEPROM
   eventually.
 
-# Porting your keyboard to QMK
+# Porting your keyboard to Keystrokes
 
 If your keyboard is running an Atmega chip (atmega32u4 and others), it's pretty easy to get things setup for compiling your own firmware to flash onto your board. There is a `/util/new_project.sh <keyboard>` script to help get you started - you can simply pass your keyboard's name into the script, and all of the necessary files will be created. The components of each are described below.
 
@@ -759,13 +737,13 @@ If your keyboard is running an Atmega chip (atmega32u4 and others), it's pretty 
 
 The `USB Device descriptor parameter` block contains parameters are used to uniquely identify your keyboard, but they don't really matter to the machine.
 
-Your `MATRIX_ROWS` and `MATRIX_COLS` are the numbers of rows and cols in your keyboard matrix - this may be different than the number of actual rows and columns on your keyboard. There are some tricks you can pull to increase the number of keys in a given matrix, but most keyboards are pretty straight-forward. 
+Your `MATRIX_ROWS` and `MATRIX_COLS` are the numbers of rows and cols in your keyboard matrix - this may be different than the number of actual rows and columns on your keyboard. There are some tricks you can pull to increase the number of keys in a given matrix, but most keyboards are pretty straight-forward.
 
 The `MATRIX_ROW_PINS` and `MATRIX_COL_PINS` are the pins your MCU uses on each row/column. Your schematic (if you have one) will have this information on it, and the values will vary depending on your setup. This is one of the most important things to double-check in getting your keyboard setup correctly.
 
 For the `DIODE_DIRECTION`, most hand-wiring guides will instruct you to wire the diodes in the `COL2ROW` position, but it's possible that they are in the other - people coming from EasyAVR often use `ROW2COL`. Nothing will function if this is incorrect.
 
-`BACKLIGHT_PIN` is the pin that your PWM-controlled backlight (if one exists) is hooked-up to. Currently only B5, B6, and B7 are supported. 
+`BACKLIGHT_PIN` is the pin that your PWM-controlled backlight (if one exists) is hooked-up to. Currently only B5, B6, and B7 are supported.
 
 `BACKLIGHT_BREATHING` is a fancier backlight feature, and uses one of the timers.
 
@@ -789,11 +767,11 @@ At the bottom of the file, you'll find lots of features to turn on and off - all
 
 ## `/keyboards/<keyboard>/readme.md`
 
-This is where you'll describe your keyboard - please write as much as you can about it! Talking about default functionality/features is useful here. Feel free to link to external pages/sites if necessary. Images can be included here as well. This file will be rendered into a webpage at qmk.fm/keyboards/<keyboard>/.
+This is where you'll describe your keyboard - please write as much as you can about it! Talking about default functionality/features is useful here. Feel free to link to external pages/sites if necessary. Images can be included here as well.
 
 ## `/keyboards/<keyboard>/<keyboard>.c`
 
-This is where all of the custom logic for your keyboard goes - you may not need to put anything in this file, since a lot of things are configured automatically. All of the `*_kb()` functions are defined here. If you modify them, remember to keep the calls to `*_user()`, or things in the keymaps might not work. You can read more about the functions [here](#custom-quantum-functions-for-keyboards-and-keymaps)
+This is where all of the custom logic for your keyboard goes - you may not need to put anything in this file, since a lot of things are configured automatically. All of the `*_kb()` functions are defined here. If you modify them, remember to keep the calls to `*_user()`, or things in the keymaps might not work. You can read more about the functions [here](#custom-keystrokes-functions)
 
 ## `/keyboards/<keyboard>/<keyboard>.h`
 

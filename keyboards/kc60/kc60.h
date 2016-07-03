@@ -1,7 +1,7 @@
 #ifndef KC60_H
 #define KC60_H
 
-#include "quantum.h"
+#include "keystrokes.h"
 
 // This a shortcut to help you visually see your layout.
 // The first section contains all of the arguements

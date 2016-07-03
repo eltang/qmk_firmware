@@ -14,7 +14,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-#include "quantum.h"
+#include "keystrokes.h"
 
 #define LED_ON()    do { DDRC |= (1<<5); PORTC |= (1<<5); } while (0)
 #define LED_OFF()   do { DDRC &= ~(1<<5); PORTC &= ~(1<<5); } while (0)

@@ -1,4 +1,4 @@
-# Quantum Hand-wiring Guide
+# Keystrokes Hand-wiring Guide
 
 Parts list:
 * *x* keyswitches (MX, Matias, Gateron, etc)
@@ -183,7 +183,7 @@ As you move along, be sure that the Teensy is staying in place - recutting and s
 
 From here, you should have a working keyboard with the correct firmware. Before we attach the Teensy permanently to the keyboard, let's quickly get some firmware loaded onto the Teensy so we can test each keyswitch.
 
-To start out, download [the firmware](https://github.com/jackhumbert/qmk_firmware/) - we'll be using my (Jack's) fork of TMK called QMK/Quantum. We'll be doing a lot from the Terminal/command prompt, so get that open, along with a decent text editor like [Sublime Text](http://www.sublimetext.com/).
+To start out, download [the firmware](https://github.com/eltang/keystrokes/). We'll be doing a lot from the Terminal/command prompt, so get that open, along with a decent text editor like [Sublime Text](http://www.sublimetext.com/).
 
 The first thing we're going to do is create a new project using the script in the root directory of the firmware. In your terminal, run this command with `<project_name>` replaced by the name of your project - it'll need to be different from any other project in the `keyboards/` folder:
 
@@ -276,7 +276,7 @@ This can be accomplished by using the following `keymaps` definition:
     ),
     };
 
-Note that the layout of the keycodes is similar to the physical layout of our keyboard - this make it much easier to see what's going on. A lot of the keycodes should be fairly obvious, but for a full list of them, check out [tmk_code/doc/keycode.txt](https://github.com/jackhumbert/qmk_firmware/blob/master/tmk_core/doc/keycode.txt) - there are also a lot of aliases to condense your keymap file.
+Note that the layout of the keycodes is similar to the physical layout of our keyboard - this make it much easier to see what's going on. A lot of the keycodes should be fairly obvious, but for a full list of them, check out [tmk_code/doc/keycode.txt](https://github.com/eltang/keystrokes/blob/master/tmk_core/doc/keycode.txt) - there are also a lot of aliases to condense your keymap file.
 
 It's also important to use the `KEYMAP` function we defined earlier - this is what allows the firmware to associate our intended readable keymap with the actual wiring.
 
@@ -286,7 +286,7 @@ After you've written out your entire keymap, you're ready to get the firmware co
 
 Once everything is installed, running `make` in the terminal should get you some output, and eventually a `<project_name>.hex` file in that folder. If you're having trouble with this step, see the end of the guide for the trouble-shooting section.
 
-Once you have your `<project_name>.hex` file, open up the Teensy loader application, and click the file icon. From here, navigate to your `QMK/keyboards/<project_name>/` folder, and select the `<project_name>.hex` file. Plug in your keyboard and press the button on the Teensy - you should see the LED on the device turn off once you do. The Teensy Loader app will change a little, and the buttons should be clickable - click the download button (down arrow), and then the reset button (right arrow), and your keyboard should be ready to go!
+Once you have your `<project_name>.hex` file, open up the Teensy loader application, and click the file icon. From here, navigate to your `keyboards/<project_name>/` folder, and select the `<project_name>.hex` file. Plug in your keyboard and press the button on the Teensy - you should see the LED on the device turn off once you do. The Teensy Loader app will change a little, and the buttons should be clickable - click the download button (down arrow), and then the reset button (right arrow), and your keyboard should be ready to go!
 
 #### Testing your firmware
 
@@ -306,7 +306,7 @@ If you've done all of these things, keep in mind that sometimes you might have h
 
 Now that you have a working board, it's time to get things in their permanent positions. I've often used liberal amounts of hot glue to secure and insulate things, so if that's your style, start spreading that stuff like butter. Otherwise, double-sided tape is always an elegant solution, and electrical tape is a distant second. Due to the nature of these builds, a lot of this part is up to you and how you planned (or didn't plan) things out.
 
-There are a lot of possibilities inside the firmware - check out the [readme](https://github.com/jackhumbert/qmk_firmware/blob/master/readme.md) for a full feature list, and dive into the different project (Planck, Ergodox EZ, etc) to see how people use all of them. You can always stop by [the OLKB subreddit for help!](http://reddit.com/r/olkb)
+There are a lot of possibilities inside the firmware - check out the [readme](https://github.com/eltang/keystrokes/blob/master/readme.md) for a full feature list, and dive into the different project (Planck, Ergodox EZ, etc) to see how people use all of them.
 
 ## Trouble-shooting compiling
 

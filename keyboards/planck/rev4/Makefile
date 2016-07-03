@@ -1,5 +1,5 @@
 AUDIO_ENABLE ?= yes           # Audio output on port C6
 
-ifndef QUANTUM_DIR
+ifndef KEYSTROKES_DIR
 	include ../../../Makefile
 endif

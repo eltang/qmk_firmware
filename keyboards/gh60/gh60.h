@@ -1,7 +1,7 @@
 #ifndef GH60_H
 #define GH60_H
 
-#include "quantum.h"
+#include "keystrokes.h"
 #include "led.h"
 
 /* GH60 LEDs 

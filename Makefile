@@ -45,8 +45,8 @@ TMK_DIR = tmk_core
 TMK_PATH = $(TOP_DIR)/$(TMK_DIR)
 LIB_PATH = $(TOP_DIR)/lib
 
-QUANTUM_DIR = quantum
-QUANTUM_PATH = $(TOP_DIR)/$(QUANTUM_DIR)
+KEYSTROKES_DIR = keystrokes
+KEYSTROKES_PATH = $(TOP_DIR)/$(KEYSTROKES_DIR)
 
 
 ifdef keyboard
@@ -152,10 +152,10 @@ endif
 # # project specific files
 SRC += $(KEYBOARD_FILE) \
 	$(KEYMAP_FILE) \
-	$(QUANTUM_DIR)/quantum.c \
-	$(QUANTUM_DIR)/keymap_common.c \
-	$(QUANTUM_DIR)/keycode_config.c \
-	$(QUANTUM_DIR)/process_keycode/process_leader.c
+	$(KEYSTROKES_DIR)/keystrokes.c \
+	$(KEYSTROKES_DIR)/keymap_common.c \
+	$(KEYSTROKES_DIR)/keycode_config.c \
+	$(KEYSTROKES_DIR)/process_keycode/process_leader.c
 
 ifdef SUBPROJECT
 	SRC += $(SUBPROJECT_FILE)
@@ -170,36 +170,36 @@ ifdef SUBPROJECT
 endif
 
 ifndef CUSTOM_MATRIX
-	SRC += $(QUANTUM_DIR)/matrix.c
+	SRC += $(KEYSTROKES_DIR)/matrix.c
 endif
 
 ifeq ($(strip $(MIDI_ENABLE)), yes)
     OPT_DEFS += -DMIDI_ENABLE
-	SRC += $(QUANTUM_DIR)/process_keycode/process_audio.c
+	SRC += $(KEYSTROKES_DIR)/process_keycode/process_audio.c
 endif
 
 ifeq ($(strip $(AUDIO_ENABLE)), yes)
     OPT_DEFS += -DAUDIO_ENABLE
-	SRC += $(QUANTUM_DIR)/process_keycode/process_music.c
-	SRC += $(QUANTUM_DIR)/audio/audio.c
-	SRC += $(QUANTUM_DIR)/audio/voices.c
-	SRC += $(QUANTUM_DIR)/audio/luts.c
+	SRC += $(KEYSTROKES_DIR)/process_keycode/process_music.c
+	SRC += $(KEYSTROKES_DIR)/audio/audio.c
+	SRC += $(KEYSTROKES_DIR)/audio/voices.c
+	SRC += $(KEYSTROKES_DIR)/audio/luts.c
 endif
 
 ifeq ($(strip $(UNICODE_ENABLE)), yes)
     OPT_DEFS += -DUNICODE_ENABLE
-	SRC += $(QUANTUM_DIR)/process_keycode/process_unicode.c
+	SRC += $(KEYSTROKES_DIR)/process_keycode/process_unicode.c
 endif
 
 ifeq ($(strip $(RGBLIGHT_ENABLE)), yes)
 	OPT_DEFS += -DRGBLIGHT_ENABLE
-	SRC += $(QUANTUM_DIR)/light_ws2812.c
-	SRC += $(QUANTUM_DIR)/rgblight.c
+	SRC += $(KEYSTROKES_DIR)/light_ws2812.c
+	SRC += $(KEYSTROKES_DIR)/rgblight.c
 endif
 
 ifeq ($(strip $(TAP_DANCE_ENABLE)), yes)
   OPT_DEFS += -DTAP_DANCE_ENABLE
-	SRC += $(QUANTUM_DIR)/process_keycode/process_tap_dance.c
+	SRC += $(KEYSTROKES_DIR)/process_keycode/process_tap_dance.c
 endif
 
 # Optimize size but this may cause error "relocation truncated to fit"
@@ -213,10 +213,10 @@ endif
 VPATH += $(KEYBOARD_PATH)
 VPATH += $(TOP_DIR)
 VPATH += $(TMK_PATH)
-VPATH += $(QUANTUM_PATH)
-VPATH += $(QUANTUM_PATH)/keymap_extras
-VPATH += $(QUANTUM_PATH)/audio
-VPATH += $(QUANTUM_PATH)/process_keycode
+VPATH += $(KEYSTROKES_PATH)
+VPATH += $(KEYSTROKES_PATH)/keymap_extras
+VPATH += $(KEYSTROKES_PATH)/audio
+VPATH += $(KEYSTROKES_PATH)/process_keycode
 
 
 # We can assume a ChibiOS target When MCU_FAMILY is defined, since it's not used for LUFA
@@ -241,5 +241,5 @@ include $(TMK_PATH)/rules.mk
 
 GIT_VERSION := $(shell git describe --abbrev=6 --dirty --always --tags 2>/dev/null || date +"%Y-%m-%d-%H:%M:%S")
 BUILD_DATE := $(shell date +"%Y-%m-%d-%H:%M:%S")
-OPT_DEFS += -DQMK_KEYBOARD=\"$(KEYBOARD)\" -DQMK_KEYMAP=\"$(KEYMAP)\"
-OPT_DEFS += -DQMK_VERSION=\"$(GIT_VERSION)\" -DQMK_BUILDDATE=\"$(BUILD_DATE)\"
+OPT_DEFS += -DKEYSTROKES_KEYBOARD=\"$(KEYBOARD)\" -DKEYSTROKES_KEYMAP=\"$(KEYMAP)\"
+OPT_DEFS += -DKEYSTROKES_VERSION=\"$(GIT_VERSION)\" -DKEYSTROKES_BUILDDATE=\"$(BUILD_DATE)\"

@@ -1,5 +1,5 @@
-#ifndef QUANTUM_H
-#define QUANTUM_H
+#ifndef KEYSTROKES_H
+#define KEYSTROKES_H
 
 #if defined(__AVR__)
 #include <avr/pgmspace.h>

@@ -4,7 +4,7 @@
 *.elf
 *.hex
 !util/bootloader.hex
-!quantum/tools/eeprom_reset.hex
+!keystrokes/tools/eeprom_reset.hex
 *.log
 *.lss
 *.lst

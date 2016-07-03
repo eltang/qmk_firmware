@@ -1,7 +1,7 @@
 #ifndef JD45_H
 #define JD45_H
 
-#include "quantum.h"
+#include "keystrokes.h"
 
 /* JD45 keymap definition macro
  */
